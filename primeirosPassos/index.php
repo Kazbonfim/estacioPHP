@@ -33,6 +33,7 @@
     ?>
 
     <h1>Primeiros Passos com PHP</h1>
+    <a href="dashboard.php"><button type="button">Acessar Dashboard</button></a>
     <hr>
     <p>Um pequeno projeto, sem fins lucrativos, mas com fins educativos, pra aprender a utilizar PHP de uma forma mais
         eficiente.</p>
@@ -42,7 +43,7 @@
             <input type="text" name="" id="" placeholder="Nome completo">
             <input type="text" name="" id="" placeholder="Idade">
             <input type="email" name="" id="" placeholder="E-mail">
-            
+
             <button type="submit">Confirmar</button>
         </form>
     </div>

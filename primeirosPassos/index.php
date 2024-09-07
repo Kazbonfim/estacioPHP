@@ -25,11 +25,27 @@
 <body>
 
     <?php
+    // Caso alguém esteja vindo do curso de ADS: mudei o script do professor pois era MUITO confuso, acredito que dessa forma fique mais simples...
+    // Inicia a sessão. Isso permite que você acesse variáveis de sessão 
+    // e mantenha dados do usuário entre diferentes páginas.
+    session_start();
 
-    $nome = "";
-    $idade = 0;
-    $email = "";
+    // Verifica se a variável de sessão "usuario" está definida.
+    // Se a variável "usuario" estiver definida, significa que o usuário está logado.
+    if (isset($_SESSION["usuario"])) {
+        // Se o usuário estiver logado, o código a seguir é executado.
+        // O código imprime um link para a página "logout.php" com um botão.
+        // Esse botão serve para deslogar o usuário e voltar ao início.
+        echo '<a href="logout.php"><button>Voltar ao início</button></a>';
+    }
+    ?>
 
+    <?php 
+    
+        $nome = "";
+        $idade = 0;
+        $email = "";
+    
     ?>
 
     <h1>Primeiros Passos com PHP</h1>

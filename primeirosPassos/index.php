@@ -24,6 +24,14 @@
 
 <body>
 
+    <?php
+
+    $nome = "";
+    $idade = 0;
+    $email = "";
+
+    ?>
+
     <h1>Primeiros Passos com PHP</h1>
     <hr>
     <p>Um pequeno projeto, sem fins lucrativos, mas com fins educativos, pra aprender a utilizar PHP de uma forma mais
@@ -54,14 +62,6 @@
         </tr>
     </table>
 
-
-    <?php
-
-    $nome = "Lucas Bonfim de Jesus";
-    $idade = 26;
-    $email = "zcry.games@gmail.com";
-
-    ?>
 
     <script src="./script.js"></script>
     <!-- Boxicons: https://boxicons.com/usage#web-component-->

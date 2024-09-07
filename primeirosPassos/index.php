@@ -32,14 +32,16 @@
     <div>
         <form action="">
             <input type="text" name="" id="" placeholder="Nome completo">
+            <input type="text" name="" id="" placeholder="Idade">
             <input type="email" name="" id="" placeholder="E-mail">
+            
             <button type="submit">Confirmar</button>
         </form>
     </div>
 
     <br>
 
-    <table class="pure-table">
+    <table class="pure-table" style="width: 50%; max-height: 10%;">
         <tr>
             <th>Nome</th>
             <th>Idade</th>

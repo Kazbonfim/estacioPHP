@@ -24,25 +24,17 @@
 
 <body>
 
-    <h1>Pequeno teste em PHP</h1>
+    <h1>Formulário de Login</h1>
+    <h2>Autoexplicativo, faça seu cadastro aqui embaixo, vamos testar tudo!</h2>
     <hr>
-    <p>Um teste simples, e prático, de como realizar um sistema de login usando PHP.</p>
 
-    <?php
-    // Inicia a sessão
-    session_start();
+    <form action="" method="post" class="pure-form pure-form-stacked">
+        <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
+        <input type="email" name="email" id="email" placeholder="Endereço de e-mail" required>
+        <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>
 
-    // Verifica se a variável de sessão "usuario" NÃO está definida
-    if (!isset($_SESSION["usuario"])) {
-        // Se o usuário não estiver logado, redireciona para a página de login
-        header("Location: formlogin.php", true, 301);
-        exit(); // Garante que o código não continue a executar
-    } else {
-        // Se o usuário estiver logado, exibe uma mensagem de boas-vindas
-        echo "<h2>Seja bem-vindo à minha página de testes!</h2>
-    <h3>Uma pena que eu não tenha nada pra exibir aqui, apenas o que pude aprender até então</h3>";
-    }
-    ?>
+        <button type="submit" class="pure-button pure-button-primary" style="margin-left: 5%;">Enviar</button>
+    </form>
 
     <script src="./script.js"></script>
     <!-- Boxicons: https://boxicons.com/usage#web-component-->

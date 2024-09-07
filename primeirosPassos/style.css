@@ -1,0 +1,9 @@
+body {
+    padding: 0.5em;
+    font-family: 'Roboto', Arial,sans-serif;
+    /* font-family: 'Assistant', sans-serif; */
+}
+
+th {
+    background-color: rgba(0, 255, 34, 0.2);
+}

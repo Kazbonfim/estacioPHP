@@ -31,46 +31,43 @@
     // Variável para armazenar possíveis mensagens de erro
     $erro = "";
 
-    // Verifica se o campo "login" foi enviado e se está vazio
-    if (!isset($_POST["login"]) or ($_POST["login"] == "")) {
-        // Caso o campo "login" não tenha sido preenchido, define a mensagem de erro
-        $erro = "Preencha o login!";
-    }
-    // Verifica se o campo "email" foi enviado e se está vazio
-    elseif (!isset($_POST["email"]) or ($_POST["email"] == "")) {
-        // Caso o campo "email" não tenha sido preenchido, define a mensagem de erro
-        $erro = "Preencha seu e-mail!";
-    }
-    // Verifica se o campo "senha" foi enviado e se está vazio
-    elseif (!isset($_POST["senha"]) or ($_POST["senha"] == "")) {
-        // Caso o campo "senha" não tenha sido preenchido, define a mensagem de erro
-        $erro = "Preencha sua senha!";
-    } else {
-        // Se todos os campos foram preenchidos, armazena os valores das variáveis
-        $login = $_POST["login"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-
-        // Verifica se o login e a senha estão corretos
-        if ($login != "admin" || $senha != "1234") {
-            // Caso o login ou a senha estejam incorretos, define a mensagem de erro
-            $erro = "Login ou senha inválidos, tente novamente!";
+    // GPT: Entendi. O problema é que, ao clicar no botão "Fazer login", você está sendo redirecionado para login.php diretamente, mas como login.php está verificando se o formulário foi enviado, ele pode estar acionando o código de validação sem que o formulário tenha sido preenchido.
+    // Certifique-se de que a lógica de validação só execute quando o método de requisição for POST e não quando você apenas acessar login.php diretamente => if ($_SERVER["REQUEST_METHOD"] == "POST") { ... }
+    // Verifica se o método de requisição é POST
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Verifica se o campo "login" foi enviado e se está vazio
+        if (!isset($_POST["login"]) || $_POST["login"] == "") {
+            $erro = "Preencha o login!";
+        }
+        // Verifica se o campo "senha" foi enviado e se está vazio
+        elseif (!isset($_POST["senha"]) || $_POST["senha"] == "") {
+            $erro = "Preencha sua senha!";
         } else {
-            // Se o login e a senha estiverem corretos, define a variável de sessão
-            $_SESSION["usuario"] = "administrador";
+            // Se todos os campos foram preenchidos, armazena os valores das variáveis
+            $login = $_POST["login"];
+            $senha = $_POST["senha"];
+
+            // Verifica se o login e a senha estão corretos
+            if ($login != "admin" && $senha != "1234") {
+                $erro = "Login ou senha inválidos, tente novamente!";
+            } else {
+                // Se o login e a senha estiverem corretos, define a variável de sessão
+                $_SESSION["usuario"] = "administrador";
+                // Redireciona para a página do dashboard
+                header("Location: dashboard.php", true, 301);
+                exit(); // Adiciona um exit para garantir que o script não continue executando
+            }
+        }
+
+        // Redireciona o usuário com base na presença de mensagens de erro
+        if ($erro != "") {
+            // Codifica a mensagem de erro para evitar problemas com caracteres especiais
+            header("Location: login.php?erro=" . urlencode($erro), true, 301);
+            exit(); // Adiciona um exit para garantir que o script não continue executando
         }
     }
-
-    // Redireciona o usuário com base na presença de mensagens de erro
-    if ($erro != "") {
-        // Se houver uma mensagem de erro, redireciona para a página de login com a mensagem de erro como parâmetro
-        //  Quando você redireciona com a mensagem de erro na URL, é uma boa prática codificar a mensagem para evitar problemas com caracteres especiais. Use urlencode() para isso
-        header("Location: login.php?erro=" . urlencode($erro), true, 301);
-    } else {
-        // Se não houver erro, redireciona para a página do dashboard
-        header("Location: dashboard.php", true, 301);
-    }
     ?>
+
 
 
 

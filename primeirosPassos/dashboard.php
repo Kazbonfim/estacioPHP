@@ -49,7 +49,7 @@
     }
     ?>
 
-    <table class="pure-table" style="width: 50%; max-height: 10%;">
+    <table class="pure-table" style="width: 50%; max-height: 10%;" hidden>
         <tr>
             <th>Nome</th>
             <th>Idade</th>

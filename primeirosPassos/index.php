@@ -36,7 +36,7 @@
         // Se o usuário estiver logado, o código a seguir é executado.
         // O código imprime um link para a página "logout.php" com um botão.
         // Esse botão serve para deslogar o usuário e voltar ao início.
-        echo '<a href="logout.php"><button>Voltar ao início</button></a>';
+        echo '<a href="index.php"><button>Voltar ao início</button></a>';
     }
     ?>
 

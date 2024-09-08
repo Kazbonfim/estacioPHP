@@ -31,6 +31,12 @@
     // Variável para armazenar possíveis mensagens de erro
     $erro = "";
 
+    // Captura a mensagem de erro passada via GET após o redirecionamento
+    if (isset($_GET["erro"])) {
+        # code...
+        $erro = htmlspecialchars($_GET["erro"]);
+    }
+
     // GPT: Entendi. O problema é que, ao clicar no botão "Fazer login", você está sendo redirecionado para login.php diretamente, mas como login.php está verificando se o formulário foi enviado, ele pode estar acionando o código de validação sem que o formulário tenha sido preenchido.
     // Certifique-se de que a lógica de validação só execute quando o método de requisição for POST e não quando você apenas acessar login.php diretamente => if ($_SERVER["REQUEST_METHOD"] == "POST") { ... }
     // Verifica se o método de requisição é POST
@@ -46,9 +52,9 @@
             // Se todos os campos foram preenchidos, armazena os valores das variáveis
             $login = $_POST["login"];
             $senha = $_POST["senha"];
-
+            
             // Verifica se o login e a senha estão corretos
-            if ($login != "admin" && $senha != "1234") {
+            if ($login != "admin" || $senha != "1234") {
                 $erro = "Login ou senha inválidos, tente novamente!";
             } else {
                 // Se o login e a senha estiverem corretos, define a variável de sessão
@@ -58,7 +64,7 @@
                 exit(); // Adiciona um exit para garantir que o script não continue executando
             }
         }
-
+        
         // Redireciona o usuário com base na presença de mensagens de erro
         if ($erro != "") {
             // Codifica a mensagem de erro para evitar problemas com caracteres especiais
@@ -72,12 +78,21 @@
     <h2>Autoexplicativo, faça seu login aqui embaixo, vamos testar tudo!</h2>
     <hr>
 
+    <?php 
+        if ($erro != "") {
+        # code...
+        echo "<h2>Algo deu errado: " . htmlspecialchars($erro) . "</h2>";
+        }
+    ?>
+
     <form action="login.php" method="post" class="pure-form pure-form-stacked">
 
         <input type="text" name="login" id="login" placeholder="Seu login?" required>
         <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>
 
         <button type="submit" class="pure-button pure-button-primary" style="margin-left: 5%;">Enviar</button>
+
+
     </form>
 
     <script src="./script.js"></script>

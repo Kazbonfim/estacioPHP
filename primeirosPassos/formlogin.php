@@ -29,6 +29,13 @@
     <hr>
 
     <form action="" method="post" class="pure-form pure-form-stacked">
+
+        <?php
+        if (isset($_GET["erro"])) {
+            echo "<hr><h2>Erro em processar os dados enviados: {$_GET['erro']}</h2>";
+        }
+        ?>
+
         <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
         <input type="email" name="email" id="email" placeholder="Endereço de e-mail" required>
         <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>

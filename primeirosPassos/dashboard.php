@@ -29,6 +29,11 @@
     <p>Um teste simples, e prático, de como realizar um sistema de login usando PHP.</p>
 
     <?php
+
+    $nome = "Lucas Bonfim de Jesus";
+    $idade = 0;
+    $email = "zcry.games@gmail.com";
+
     // Inicia a sessão
     session_start();
 
@@ -43,6 +48,19 @@
     <h3>Uma pena que eu não tenha nada pra exibir aqui, apenas o que pude aprender até então</h3>";
     }
     ?>
+
+    <table class="pure-table" style="width: 50%; max-height: 10%;">
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>E-mail</th>
+        </tr>
+        <tr>
+            <td><?php echo $nome; ?></td>
+            <td><?php echo $idade; ?></td>
+            <td><?php echo $email; ?></td>
+        </tr>
+    </table>
 
     <script src="./script.js"></script>
     <!-- Boxicons: https://boxicons.com/usage#web-component-->

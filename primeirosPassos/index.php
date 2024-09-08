@@ -40,14 +40,6 @@
     }
     ?>
 
-    <?php 
-    
-        $nome = "";
-        $idade = 0;
-        $email = "";
-    
-    ?>
-
     <h1>Primeiros Passos com PHP</h1>
     <a href="dashboard.php"><button type="button">Fazer cadastro</button></a>
     <a href="login.php"><button type="button">Fazer login</button></a>
@@ -55,31 +47,7 @@
     <p>Um pequeno projeto, sem fins lucrativos, mas com fins educativos, pra aprender a utilizar PHP de uma forma mais
         eficiente.</p>
 
-    <div>
-        <form action="">
-            <input type="text" name="" id="" placeholder="Nome completo">
-            <input type="text" name="" id="" placeholder="Idade">
-            <input type="email" name="" id="" placeholder="E-mail">
-
-            <button type="submit">Confirmar</button>
-        </form>
-    </div>
-
     <br>
-
-    <table class="pure-table" style="width: 50%; max-height: 10%;">
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>E-mail</th>
-        </tr>
-        <tr>
-            <td><?php echo $nome; ?></td>
-            <td><?php echo $idade; ?></td>
-            <td><?php echo $email; ?></td>
-        </tr>
-    </table>
-
 
     <script src="./script.js"></script>
     <!-- Boxicons: https://boxicons.com/usage#web-component-->

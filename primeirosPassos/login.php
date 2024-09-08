@@ -68,16 +68,13 @@
     }
     ?>
 
-
-
-
     <h1>Formulário para criação de contas</h1>
     <h2>Autoexplicativo, faça seu login aqui embaixo, vamos testar tudo!</h2>
     <hr>
 
     <form action="login.php" method="post" class="pure-form pure-form-stacked">
 
-        <input type="text" name="nome" id="nome" placeholder="Seu login?" required>
+        <input type="text" name="login" id="login" placeholder="Seu login?" required>
         <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>
 
         <button type="submit" class="pure-button pure-button-primary" style="margin-left: 5%;">Enviar</button>

@@ -50,24 +50,39 @@
         $login = $_POST["login"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
-        
+
+        // Verifica se o login e a senha estão corretos
         if ($login != "admin" || $senha != "1234") {
-            # code...
+            // Caso o login ou a senha estejam incorretos, define a mensagem de erro
             $erro = "Login ou senha inválidos, tente novamente!";
+        } else {
+            // Se o login e a senha estiverem corretos, define a variável de sessão
+            $_SESSION["usuario"] = "administrador";
         }
+    }
+
+    // Redireciona o usuário com base na presença de mensagens de erro
+    if ($erro != "") {
+        // Se houver uma mensagem de erro, redireciona para a página de login com a mensagem de erro como parâmetro
+        //  Quando você redireciona com a mensagem de erro na URL, é uma boa prática codificar a mensagem para evitar problemas com caracteres especiais. Use urlencode() para isso
+        header("Location: login.php?erro=" . urlencode($erro), true, 301);
+    } else {
+        // Se não houver erro, redireciona para a página do dashboard
+        header("Location: dashboard.php", true, 301);
     }
     ?>
 
 
+
     <h1>Formulário para criação de contas</h1>
-    <h2>Autoexplicativo, faça seu cadastro aqui embaixo, vamos testar tudo!</h2>
+    <h2>Autoexplicativo, faça seu login aqui embaixo, vamos testar tudo!</h2>
     <hr>
 
-    <form action="" method="post" class="pure-form pure-form-stacked">
+    <form action="login.php" method="post" class="pure-form pure-form-stacked">
 
-        <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
+        <input type="text" name="nome" id="nome" placeholder="Seu login?" required>
         <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>
-        
+
         <button type="submit" class="pure-button pure-button-primary" style="margin-left: 5%;">Enviar</button>
     </form>
 

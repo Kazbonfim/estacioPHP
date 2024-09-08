@@ -49,7 +49,8 @@
     ?>
 
     <h1>Primeiros Passos com PHP</h1>
-    <a href="dashboard.php"><button type="button">Acessar Dashboard</button></a>
+    <a href="dashboard.php"><button type="button">Fazer cadastro</button></a>
+    <a href="login.php"><button type="button">Fazer login</button></a>
     <hr>
     <p>Um pequeno projeto, sem fins lucrativos, mas com fins educativos, pra aprender a utilizar PHP de uma forma mais
         eficiente.</p>

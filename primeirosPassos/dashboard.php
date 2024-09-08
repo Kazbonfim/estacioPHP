@@ -35,7 +35,7 @@
     // Verifica se a variável de sessão "usuario" NÃO está definida
     if (!isset($_SESSION["usuario"])) {
         // Se o usuário não estiver logado, redireciona para a página de login
-        header("Location: formlogin.php", true, 301);
+        header("Location: register.php", true, 301);
         exit(); // Garante que o código não continue a executar
     } else {
         // Se o usuário estiver logado, exibe uma mensagem de boas-vindas

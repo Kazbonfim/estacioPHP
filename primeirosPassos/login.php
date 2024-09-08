@@ -25,26 +25,39 @@
 <body>
 
     <?php
+    // Inicia a sessão para possibilitar o uso de variáveis de sessão
     session_start();
 
+    // Variável para armazenar possíveis mensagens de erro
     $erro = "";
 
-    if (!isset($POST["login"]) or ($_POST["login"] == "")) {
-        # code...
+    // Verifica se o campo "login" foi enviado e se está vazio
+    if (!isset($_POST["login"]) or ($_POST["login"] == "")) {
+        // Caso o campo "login" não tenha sido preenchido, define a mensagem de erro
         $erro = "Preencha o login!";
-    } elseif (!isset($POST["email"]) or ($_POST["email"] == "")) {
-        # code...
+    }
+    // Verifica se o campo "email" foi enviado e se está vazio
+    elseif (!isset($_POST["email"]) or ($_POST["email"] == "")) {
+        // Caso o campo "email" não tenha sido preenchido, define a mensagem de erro
         $erro = "Preencha seu e-mail!";
-    } elseif (!isset($POST["senha"]) or ($_POST["senha"] == "")) {
-        # code...
+    }
+    // Verifica se o campo "senha" foi enviado e se está vazio
+    elseif (!isset($_POST["senha"]) or ($_POST["senha"] == "")) {
+        // Caso o campo "senha" não tenha sido preenchido, define a mensagem de erro
         $erro = "Preencha sua senha!";
     } else {
-        # code...
+        // Se todos os campos foram preenchidos, armazena os valores das variáveis
         $login = $_POST["login"];
         $email = $_POST["email"];
         $senha = $_POST["senha"];
+        
+        if ($login != "admin" || $senha != "1234") {
+            # code...
+            $erro = "Login ou senha inválidos, tente novamente!";
+        }
     }
     ?>
+
 
     <h1>Formulário para criação de contas</h1>
     <h2>Autoexplicativo, faça seu cadastro aqui embaixo, vamos testar tudo!</h2>
@@ -54,7 +67,7 @@
 
         <input type="text" name="nome" id="nome" placeholder="Nome completo" required>
         <input type="password" name="senha" id="senha" placeholder="Sua senha?" required>
-
+        
         <button type="submit" class="pure-button pure-button-primary" style="margin-left: 5%;">Enviar</button>
     </form>
 
